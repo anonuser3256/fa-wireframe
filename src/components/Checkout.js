@@ -72,32 +72,32 @@ function Checkout(props) {
     }
 
     function checkCardNumber() {
-        if (!cardChecked || cardNumber !== "") {
-            setValidCardNumber(true);
-            return true;
-        } else {
+        if (cardChecked && cardNumber === "") {
             setValidCardNumber(false);
             return false;
+        } else {
+            setValidCardNumber(true);
+            return true;
         }
     }
 
     function checkExpiryDate() {
-        if (!cardChecked || expiryDate !== "") {
-            setValidExpiryDate(true);
-            return true;
-        } else {
+        if (cardChecked && !(/^\d{2}([./-])\d{2}\1\d{4}$/.test(expiryDate))) {
             setValidExpiryDate(false);
             return false;
+        } else {
+            setValidExpiryDate(true);
+            return true;
         }
     }
 
     function checkCvv() {
-        if (!cardChecked || cvv !== "") {
-            setValidCvv(true);
-            return true;
-        } else {
+        if (cardChecked && cvv.length !== 3) {
             setValidCvv(false);
             return false;
+        } else {
+            setValidCvv(true);
+            return true;
         }
     }
 
