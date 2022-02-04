@@ -9,14 +9,34 @@ function Cart(props) {
         //
     }, [props.itemsInCart]);
 
+
+    function increaseTotalCost(itemPrice) {
+        props.increaseTotalCost(itemPrice);
+    }
+
+    function decreaseTotalCost(itemPrice) {
+        props.decreaseTotalCost(itemPrice);
+    }
+
+    function removeItem(itemToRemove, quantity, itemIndex) {
+        props.removeItem(itemToRemove, quantity, itemIndex);
+    }
+
     return (
         <div className="cart-area">
             <h1 className="cart-title">Your cart</h1>
             <div className="your-cart-items">
-                {props.itemsInCart.map(function(object, i){
-                    return <CartItem itemsInCart={object} key={i} />;
+                {props.itemsInCart.map((object, i) => {
+                    return <CartItem
+                        itemInCart={object}
+                        index={i}
+                        increaseTotalCost={increaseTotalCost}
+                        decreaseTotalCost={decreaseTotalCost}
+                        removeItem={removeItem}
+                    />;
                 })}
             </div>
+            <h1 className="cart-title">Total cost: £{props.totalCost}</h1>
         </div>
     );
 }
