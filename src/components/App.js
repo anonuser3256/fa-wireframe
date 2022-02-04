@@ -55,7 +55,9 @@ function App() {
                     decreaseTotalCost={decreaseTotalCost}
                     removeItem={removeItem}
                 />
-                <Checkout />
+                <Checkout
+                    totalCost={totalCost}
+                />
             </div>
 
         </div>
