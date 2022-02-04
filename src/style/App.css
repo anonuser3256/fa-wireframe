@@ -2,3 +2,8 @@
   display: flex;
   justify-content: space-around;
 }
+
+.cart-checkout {
+  display: flex;
+  justify-content: space-around;
+}
