@@ -17,6 +17,13 @@
 }
 
 
+.visible {
+    display: inline;
+}
+.invisible {
+    display: none;
+}
+
 .additional-card-details {
     display: flex;
     justify-content: space-around;
@@ -33,6 +40,10 @@
 /*    */
 }
 
+.invalid {
+    border-color: red;
+}
+
 #exp-dt {
     margin-left: 4.5%;
 }
@@ -47,7 +58,7 @@
 }
 
 .pay-button {
-    background-color: unset;
+    background-color: #959595;
     box-shadow: none;
     border: black solid 1px;
     margin-top: 10px;
