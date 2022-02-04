@@ -10,3 +10,55 @@
     text-align: center;
     font-weight: normal;
 }
+
+.checkout-form {
+    width: 100%;
+    text-align: center;
+}
+
+
+.additional-card-details {
+    display: flex;
+    justify-content: space-around;
+}
+
+.standard-input {
+    height: 40px;
+    width: 90%;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.card-paypal {
+/*    */
+}
+
+#exp-dt {
+    margin-left: 4.5%;
+}
+#cvv {
+    margin-right: 4.5%;
+}
+.add-card {
+    height: 40px;
+    width: 50%;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.pay-button {
+    background-color: unset;
+    box-shadow: none;
+    border: black solid 1px;
+    margin-top: 10px;
+    height: 50px;
+    width: 50%;
+}
+.pay-button:hover {
+    cursor: pointer;
+    background-color: #7f7f7f;
+}
+.pay-button:active {
+    cursor: pointer;
+    background-color: #747474;
+}

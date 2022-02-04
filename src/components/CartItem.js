@@ -32,7 +32,6 @@ function CartItem(props) {
                     <span>{quantity}</span>
                     <button onClick={increaseItemQuantity}>+</button>
                 </div>
-
             </div>
         </div>
     );
