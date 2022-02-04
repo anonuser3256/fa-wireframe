@@ -12,10 +12,32 @@ function App() {
     function updateCartItems(itemName, itemPrice) {
         if (!itemNamesInCart.includes(itemName)) {
             setItemNamesInCart(prevState => ([...prevState, itemName]));
-            setItemsInCart(prevState => ([...prevState, {itemName, itemPrice, "quantity": 1}]));
+            setItemsInCart(prevState => ([...prevState, {itemName, itemPrice}]));
             setTotalCost(totalCost + parseFloat(itemPrice));
         }
     }
+
+    function increaseTotalCost(itemPrice) {
+        setTotalCost(totalCost + parseFloat(itemPrice));
+    }
+
+    function decreaseTotalCost(itemPrice) {
+        setTotalCost(totalCost - parseFloat(itemPrice));
+    }
+
+    function removeItem(itemToRemove, quantity, itemIndex) {
+        let totalItemCost = parseFloat(itemToRemove.itemPrice) * quantity;
+        setTotalCost(totalCost - totalItemCost);
+
+        const reducedItemNames = [...itemNamesInCart];
+        reducedItemNames.splice(itemIndex, 1);
+        setItemNamesInCart(reducedItemNames);
+
+        const reducedItemsInCart = [...itemsInCart];
+        reducedItemsInCart.splice(itemIndex, 1);
+        setItemsInCart(reducedItemsInCart);
+    }
+
 
     return (
         <div className="App">
@@ -26,7 +48,13 @@ function App() {
                 <Item name="4" price="35" updateCartItems={updateCartItems} />
             </div>
             <div className="cart-checkout">
-                <Cart itemsInCart={itemsInCart} />
+                <Cart
+                    itemsInCart={itemsInCart}
+                    totalCost={totalCost}
+                    increaseTotalCost={increaseTotalCost}
+                    decreaseTotalCost={decreaseTotalCost}
+                    removeItem={removeItem}
+                />
                 <Checkout />
             </div>
 
