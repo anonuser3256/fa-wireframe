@@ -1,4 +1,4 @@
-.cart-area {
+.checkout-area {
     height: 60vh;
     width: 45vw;
     margin-top: 1vh;
@@ -6,7 +6,7 @@
     background-color: darkgrey;
 }
 
-.cart-title {
+.checkout-title {
     text-align: center;
     font-weight: normal;
 }
