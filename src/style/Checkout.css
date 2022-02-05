@@ -1,5 +1,5 @@
 .checkout-area {
-    height: 60vh;
+    height: 600px;
     width: 45vw;
     margin-top: 1vh;
     border: black solid 1px;
@@ -34,10 +34,6 @@
     width: 90%;
     margin-bottom: 3px;
     margin-top: 3px;
-}
-
-.card-paypal {
-/*    */
 }
 
 .invalid {

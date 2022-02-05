@@ -1,5 +1,5 @@
 .cart-area {
-    height: 60vh;
+    height: 600px;
     width: 45vw;
     margin-top: 1vh;
     border: black solid 1px;
@@ -9,4 +9,10 @@
 .cart-title {
     text-align: center;
     font-weight: normal;
+}
+
+.cart-total {
+    background-color: #959595;
+    margin-right: 5%;
+    margin-left: 5%;
 }

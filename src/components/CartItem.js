@@ -27,10 +27,10 @@ function CartItem(props) {
             <div className="cart-item-details">
                 <h3>Item {props.itemInCart.itemName} - £{props.itemInCart.itemPrice}</h3>
                 <div className="item-interaction">
-                    <button onClick={removeItem}>Remove</button>
-                    <button onClick={decreaseItemQuantity}>-</button>
+                    <button id="remove-btn" onClick={removeItem}>Remove</button>
+                    <button className="item-quantity" onClick={decreaseItemQuantity}>-</button>
                     <span>{quantity}</span>
-                    <button onClick={increaseItemQuantity}>+</button>
+                    <button className="item-quantity" onClick={increaseItemQuantity}>+</button>
                 </div>
             </div>
         </div>
