@@ -38,6 +38,12 @@ function App() {
         setItemsInCart(reducedItemsInCart);
     }
 
+    function payForItems() {
+        setItemNamesInCart([]);
+        setItemsInCart([]);
+        setTotalCost(0);
+    }
+
 
     return (
         <div className="App">
@@ -57,6 +63,7 @@ function App() {
                 />
                 <Checkout
                     totalCost={totalCost}
+                    payForItems={payForItems}
                 />
             </div>
 

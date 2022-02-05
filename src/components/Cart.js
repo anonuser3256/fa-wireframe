@@ -36,7 +36,7 @@ function Cart(props) {
                     />;
                 })}
             </div>
-            <h1 className="cart-title">Total cost: £{props.totalCost}</h1>
+            <h1 className="cart-title cart-total">Total cost: £{props.totalCost}</h1>
         </div>
     );
 }

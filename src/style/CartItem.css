@@ -3,27 +3,45 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    /*margin-top: 1vh;*/
-    /*background-color: white;*/
     margin-top: 1vh;
     margin-left: 5%;
 }
 
+#remove-btn {
+    background-color: unset;
+    border-style: unset;
+    text-decoration: underline;
+}
+#remove-btn:hover {
+    cursor: pointer;
+}
+
 .cart-whitespace-area {
-    width: 40%;
+    width: 30%;
     background-color: white;
 }
 
 .cart-item-details {
-    width: 60%;
+    width: 70%;
     text-align: center;
+
 }
 
 .item-interaction {
-    width: 100%;
+    align-content: center;
+    width: 50%;
     height: 20%;
     text-align: center;
     display: flex;
     justify-content: space-around;
-    margin-right: 5%;
+    margin: auto;
+}
+
+.item-quantity {
+    background-color: white;
+    border-style: unset;
+    width: 20px;
+}
+.item-quantity:hover {
+    cursor: pointer;
 }
