@@ -17,6 +17,7 @@ function Checkout(props) {
     const [validCvv, setValidCvv] = React.useState(true);
 
     const [triggerFeedback, setTriggerFeedback] = React.useState(false);
+    const [finalCost, setFinalCost] = React.useState(0);
 
     const [cardChecked, setCardChecked] = React.useState(true);
 
@@ -30,14 +31,17 @@ function Checkout(props) {
 
 
     function validDataEntries() {
+        setTriggerFeedback(false);
         let checkOne = checkFirstName();
         let checkTwo = checkSurname();
         let checkThree = checkEmailFormat();
         let checkFour = checkCardNumber();
         let checkFive = checkExpiryDate();
         let checkSix = checkCvv();
-        if (checkOne && checkTwo && checkThree && checkFour && checkFive && checkSix) {
+        if (checkOne && checkTwo && checkThree && checkFour && checkFive && checkSix && props.totalCost > 0) {
             setTriggerFeedback(true);
+            setFinalCost(props.totalCost);
+            props.payForItems();
         }
     }
 
@@ -72,7 +76,7 @@ function Checkout(props) {
     }
 
     function checkCardNumber() {
-        if (cardChecked && cardNumber === "") {
+        if (cardChecked && (cardNumber === "" || isNaN(parseInt(cardNumber)))) {
             setValidCardNumber(false);
             return false;
         } else {
@@ -92,7 +96,7 @@ function Checkout(props) {
     }
 
     function checkCvv() {
-        if (cardChecked && cvv.length !== 3) {
+        if (cardChecked && (cvv.length !== 3 || isNaN(parseInt(cvv)))) {
             setValidCvv(false);
             return false;
         } else {
@@ -138,17 +142,20 @@ function Checkout(props) {
                     <div className="card-paypal">
                         <input
                             id="card-radio"
+                            value="card-radio"
                             type="radio"
                             name="card-radio"
-                            onChange={handleCardChosen}
-                            checked={"checked"}
+                            onClick={handleCardChosen}
+                            checked={ cardChecked }
                         />
                         <label htmlFor="card-radio">Card</label>
                         <input
                             id="paypal-radio"
+                            value="paypal-radio"
                             type="radio"
                             name="card-radio"
-                            onChange={handlePaypalChosen}
+                            onClick={handlePaypalChosen}
+                            checked={ !cardChecked }
                         />
                         <label htmlFor="paypal-radio">Paypal</label>
                     </div>
@@ -184,11 +191,13 @@ function Checkout(props) {
                 <button
                     className="pay-button"
                     onClick={validDataEntries}
-                >Pay £{props.totalCost}</button>
+                >
+                    Pay £{props.totalCost}
+                </button>
                 <br/>
                 <br/>
                 <h2 className={triggerFeedback ? 'visible' : 'invisible'}>
-                    Thank you, {firstName}! You have successfully paid £{props.totalCost}!
+                    Thank you, {firstName}! You have successfully paid £{finalCost}!
                 </h2>
             </div>
         </div>
