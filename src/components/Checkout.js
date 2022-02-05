@@ -18,6 +18,7 @@ function Checkout(props) {
 
     const [triggerFeedback, setTriggerFeedback] = React.useState(false);
     const [finalCost, setFinalCost] = React.useState(0);
+    const [finalName, setFinalName] = React.useState("");
 
     const [cardChecked, setCardChecked] = React.useState(true);
 
@@ -41,6 +42,7 @@ function Checkout(props) {
         if (checkOne && checkTwo && checkThree && checkFour && checkFive && checkSix && props.totalCost > 0) {
             setTriggerFeedback(true);
             setFinalCost(props.totalCost);
+            setFinalName(firstName);
             props.payForItems();
         }
     }
@@ -197,7 +199,7 @@ function Checkout(props) {
                 <br/>
                 <br/>
                 <h2 className={triggerFeedback ? 'visible' : 'invisible'}>
-                    Thank you, {firstName}! You have successfully paid £{finalCost}!
+                    Thank you, {finalName}! You have successfully paid £{finalCost}!
                 </h2>
             </div>
         </div>
