@@ -1,0 +1,10 @@
+Given more time, I would've liked to add tests for my solution.
+
+I also would have liked to explore more libraries to make use of, especially CSS-centred libraries, which would have
+sped up my development time.
+
+I also would have liked to consider more accessibility options, such as screen readers etc.
+
+I would have also liked to improve my feedback for when a user selects the pay option - e.g., as opposed to some
+text in the Checkout area, I would have liked a pop-up menu confirming the order details (with perhaps even some
+information along the lines of "your receipt has been emailed to <email address>").
